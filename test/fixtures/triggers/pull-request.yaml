@@ -1,0 +1,11 @@
+# /test/fixtures/triggers/pull-request.yaml
+on:
+  pull_request:
+    branches: [main]
+    paths: [src/**]
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: npm run typecheck

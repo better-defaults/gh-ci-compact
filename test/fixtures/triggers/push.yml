@@ -1,0 +1,11 @@
+# /test/fixtures/triggers/push.yml
+on:
+  push:
+    branches: [main]
+    paths: [src/**]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: npm run lint
