@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+if [ ! -f "$ROOT/dist/cli.js" ]; then
+  echo "gh-ci-compact: dist/cli.js is missing." >&2
+  echo "Run: npm install && npm run build" >&2
+  exit 1
+fi
+
+exec node "$ROOT/dist/cli.js" "$@"
